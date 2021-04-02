@@ -6,8 +6,14 @@ We did the hard work so you don't have to.
 
 Pull requests welcome!
 
+TODO
+----
+
+ - https://digitalfortress.tech/tricks/top-15-commonly-used-regex/
+
 Installation
--------
+------------
+
 Install via pip
 
     sudo pip install commonregex
