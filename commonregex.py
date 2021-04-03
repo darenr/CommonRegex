@@ -17,9 +17,9 @@ btc_address      = re.compile('(?<![a-km-zA-HJ-NP-Z0-9])[13][a-km-zA-HJ-NP-Z0-9]
 street_address   = re.compile('\d{1,5} [\w\s]{1,30}(?:street|st|avenue|ave|road|rd|highway|hwy|square|sq|trail|trl|drive|dr|court|ct|park|parkway|pkwy|circle|cir|boulevard|blvd)\W?(?=\s|$)', re.IGNORECASE)
 zip_code         = re.compile(r'\b\d{5}(?:[-\s]\d{4})?\b')
 po_box           = re.compile(r'P\.? ?O\.? Box \d+', re.IGNORECASE)
-ssn              = re.compile('(?!000|666|333)0*(?:[0-6][0-9][0-9]|[0-7][0-6][0-9]|[0-7][0-7][0-2])[- ](?!00)[0-9]{2}[- ](?!0000)[0-9]{4}')
 address_with_zip = re.compile('\d{1,5} [\w\s]{1,30}(?:street|st(?:\s|\.)+|avenue|ave(?:\s|\.)+|road|rd(?:\s|\.)+|highway|hwy(?:\s|\.)+|square|sq(?:\s|\.)+|trail|trl(?:\s|\.)+|drive|dr(?:\s|\.)+|court|ct(?:\s|\.)+|park|parkway|pkwy(?:\s|\.)+|circle|cir(?:\s|\.)+|boulevard|blvd(?:\s|\.)+|island|port|view|parkways)(?:suite\s?\d+|apt\.?\s?\d+|ste\.?\s?\d+)?[\w\s,]{1,30}\d{5}\W?(?=\s|$)', re.IGNORECASE)
-html_tags        = re.compile('<\/?[\w\s]*>|<.+[\W]>')
+html_tag         = re.compile('<\/?[\w\s]*>|<.+[\W]>')
+ssn_number       = re.compile('(?!666|000|9\\d{2})\\d{3}[- ](?!00)\\d{2}[- ](?!0{4})\\d{4}')
 
 regexes = {
   "dates"            : date,
@@ -37,9 +37,9 @@ regexes = {
   "street_addresses" : street_address,
   "zip_codes"        : zip_code,
   "po_boxes"         : po_box,
-  "ssn_numbers"      : ssn,
+  "ssn_numbers"      : ssn_number,
   "address_with_zip" : address_with_zip,
-  "html_tags"        : html_tags
+  "html_tags"        : html_tag
 }
 
 class regex:
