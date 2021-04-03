@@ -151,7 +151,7 @@ class TestPoBoxes(RegexTestCase):
         matching = ["PO Box 123456",
                     "hey p.o. box 234234 hey"]
         non_matching = ["101 main straight"]
-        
+
 
         for s in matching:
             self.assertTrue(self.parser.po_boxes(s))
@@ -175,10 +175,18 @@ class TestSSN(RegexTestCase):
         matching = ["523 23 4566", "523-04-1234"]
         non_matching = ["774 00 1245", "666-12-7856"]
         for s in matching:
-            self.assertEqual(self.parser.ssn_number(s), [s])
+            self.assertEqual(self.parser.ssn_numbers(s), [s])
         for s in non_matching:
-            self.assertFalse(self.parser.ssn_number(s), [s])
-            
+            self.assertFalse(self.parser.ssn_numbers(s), [s])
+
+class TestHTML(RegexTestCase):
+
+    def test_html(self):
+        matching = ['<span>', '</span>',
+                    '<div id="42">', '</div>']
+        for s in matching:
+            self.assertEqual(self.parser.html_tags(s), [s])
+
 if __name__ == '__main__':
     # Auto-detect test classes to reduce friction of adding a new one.
     test_cases = [clas for name, clas in list(locals().items()) if name.startswith('Test')]
