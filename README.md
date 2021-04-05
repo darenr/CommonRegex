@@ -16,7 +16,7 @@ Installation
 
 Install via pip
 
-    sudo pip install commonregex
+    sudo pip install git+git://github.com/darenr/CommonRegex.git
     
 or via setup.py
 
